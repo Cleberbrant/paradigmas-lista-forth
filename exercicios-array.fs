@@ -15,20 +15,12 @@
 ;
 
 : get ( i -- n ) ;
-
 : set ( i n -- ) ;
-
 : read-array ( -- ) ;
-
-
 : print-array ( -- ) ;
-
 : add-array ( -- sum ) ;
-
 : max-array ( -- max ) ;
-
 : min-array ( -- min ) ;
-
 : average-array ( -- avg ) ;
 
 
