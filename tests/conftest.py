@@ -9,8 +9,8 @@ import os
 
 ANSWER_KEY = os.environ.get("ANSWER_KEY", "auto").lower()
 STACK_RE  = re.compile(r"<\d+> (.*)$", re.MULTILINE)
-CMD = ["gforth", "FILE", "-e", "bye"]
-CMD = ["flatpak", "run", "--filesystem=host","org.gforth.gforth", "FILE", "-e", "bye"]
+CMD = ["gforth", "-i", "C:/Program Files (x86)/gforth/gforth.fi", "FILE", "-e", "bye"]
+# CMD = ["flatpak", "run", "--filesystem=host","org.gforth.gforth", "FILE", "-e", "bye"]
 
 BASE_PATH = Path(__file__).parent.parent 
 
@@ -90,4 +90,4 @@ def get_file_path_argument(file: str) -> str:
     if not path.exists():
         raise FileNotFoundError(f"Arquivo {file} não encontrado em {BASE_PATH}")    
 
-    return path.relative_to(Path.cwd())
+    return str(path.absolute()).replace("\\", "/")
